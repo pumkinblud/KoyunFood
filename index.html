@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoyunFood - Köstliche türkische Küche</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e74c3c">
+    <meta name="msapplication-TileColor" content="#e74c3c">
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">KoyunFood wird geladen...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="snowflake-decoration">❄</span>
+                Koyun<span>Food</span>
+                <span class="snowflake-decoration">❄</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Startseite</a></li>
+                <li><a href="#speisekarte">Speisekarte</a></li>
+                <li><a href="#ueber-uns">Über uns</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+                <!-- Fallback image in case CSS background doesn't load -->
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="KoyunFood Hintergrund" style="display: none;">
+            </div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>KoyunFood</h1>
+                <div class="divider"></div>
+                <p>Ihr zuverlässiger Partner für türkische Lebensmittel im Großhandel</p>
+                <div class="hero-buttons">
+                    <a href="#produkte" class="btn btn-primary">Zu unseren Produkten</a>
+                    <a href="#kontakt" class="btn btn-secondary">Kontakt aufnehmen</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Produkte Section -->
+    <section id="produkte" class="menu-section">
+        <div class="container">
+            <h2>Unser Sortiment</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fleisch und Wurstwaren">
+                    <h3>Fleisch & Wurstwaren</h3>
+                    <p>Hochwertiges türkisches Fleisch und Wurstspezialitäten in Großhandelsqualität</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Käse und Milchprodukte">
+                    <h3>Käse & Milchprodukte</h3>
+                    <p>Traditionelle türkische Käsesorten und frische Milchprodukte</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Trockenwaren">
+                    <h3>Trockenwaren & Gewürze</h3>
+                    <p>Umfangreiches Sortiment an türkischen Trockenwaren und Gewürzen</p>
+                </div>
+                <div class="menu-item">
+                    <div class="frozen-placeholder">
+                        <span>Tiefkühlprodukte</span>
+                    </div>
+                    <h3>Tiefkühlprodukte</h3>
+                    <p>Große Auswahl an türkischen Tiefkühlprodukten für die Gastronomie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über Uns Section -->
+    <section id="ueber-uns" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Über KoyunFood</h2>
+                    <p>Seit unserer Gründung haben wir uns bei KoyunFood auf den Großhandel mit hochwertigen türkischen Lebensmitteln spezialisiert. Unser Unternehmen steht für Frische, Qualität und Zuverlässigkeit – Werte, die uns zu einem geschätzten Partner für Gastronomiebetriebe, Einzelhändler und Großverbraucher in ganz Deutschland gemacht haben.</p>
+                    <p>Unser Sortiment umfasst eine sorgfältig ausgewählte Palette an türkischen Spezialitäten, die wir direkt von vertrauenswürdigen Herstellern und Lieferanten beziehen. Durch langjährige Partnerschaften können wir Ihnen stets frische Ware zu wettbewerbsfähigen Preisen anbieten.</p>
+                    <p>Unser erfahrenes Team steht Ihnen gerne mit kompetenter Beratung zur Seite und unterstützt Sie bei der Zusammenstellung Ihrer individuellen Bestellung. Wir verstehen die Bedürfnisse unserer Geschäftskunden und bieten maßgeschneiderte Lösungen für Ihren Betrieb.</p>
+                    <ul style="margin-top: 20px; list-style-type: none; padding-left: 0;">
+                        <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 10px;"></i> Großhandelspreise ab Lager</li>
+                        <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 10px;"></i> Regelmäßige Lieferungen</li>
+                        <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 10px;"></i> Persönliche Beratung</li>
+                        <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 10px;"></i> Zuverlässiger Service</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Großhandel für türkische Lebensmittel">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" class="contact-section">
+        <div class="container">
+            <h2>Kontakt & Geschäftszeiten</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Ihr Großhandelspartner</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Gewerbegebiet Nord, Lagerstraße 45, 12345 Berlin</p>
+                    <p><i class="fas fa-phone"></i> +49 30 12345678 (Vertrieb)</p>
+                    <p><i class="fas fa-phone"></i> +49 30 12345679 (Bestellannahme)</p>
+                    <p><i class="fas fa-fax"></i> +49 30 12345670</p>
+                    <p><i class="fas fa-envelope"></i> vertrieb@koyunfood.de</p>
+                    <p><i class="fas fa-truck"></i> Lieferung deutschlandweit</p>
+                    
+                    <h3>Lagerzeiten</h3>
+                    <p>Montag - Freitag: 07:00 - 17:00 Uhr</p>
+                    <p>Samstag: 08:00 - 14:00 Uhr</p>
+                    <p>Sonntag: Geschlossen</p>
+                    
+                    <h3>Für Großkunden</h3>
+                    <p>Unser Vertriebsteam berät Sie gerne persönlich zu unseren Produkten und Konditionen.</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Anfrage für Gewerbekunden</h3>
+                    <p>Sie sind Gewerbetreibender und interessieren sich für unsere Großhandelsangebote? Senden Sie uns eine unverbindliche Anfrage.</p>
+                    <form>
+                        <input type="text" placeholder="Firmenname*" required>
+                        <input type="text" placeholder="Ihr Name*" required>
+                        <input type="email" placeholder="E-Mail-Adresse*" required>
+                        <input type="tel" placeholder="Telefonnummer*" required>
+                        <select required>
+                            <option value="" disabled selected>Branche auswählen*</option>
+                            <option value="gastronomie">Gastronomie</option>
+                            <option value="einzelhandel">Einzelhandel</option>
+                            <option value="grossverbraucher">Großverbraucher</option>
+                            <option value="catering">Catering</option>
+                            <option value="sonstiges">Sonstiges</option>
+                        </select>
+                        <textarea placeholder="Ihre Nachricht / Gewünschte Produkte" rows="4"></textarea>
+                        <div class="privacy-checkbox">
+                            <input type="checkbox" id="privacy" required>
+                            <label for="privacy">Ich habe die <a href="datenschutz.html" style="color: var(--primary-color);">Datenschutzerklärung</a> gelesen und akzeptiere sie.*</label>
+                        </div>
+                        <button type="submit" class="btn">Anfrage senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Koyun<span>Food</span></div>
+                <div class="footer-links">
+                    <a href="agb.html">AGB</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="impressum.html">Impressum</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+                <p>&copy; 2025 KoyunFood. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies, um Ihnen das beste Erlebnis auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie unserer <a href="#" style="color: var(--primary-color);">Datenschutzerklärung</a> zu.</p>
+            <button id="accept-cookies" class="btn">Akzeptieren</button>
+        </div>
+    </div>
+
+    <!-- Google Reviews Section -->
+    <section id="bewertungen" class="reviews-section">
+        <div class="container">
+            <h2>Das sagen unsere Gäste</h2>
+            <div class="reviews-container">
+                <!-- Reviews will be loaded by JavaScript -->
+                <div id="google-reviews"></div>
+                <div class="google-review-link">
+                    <a href="#" target="_blank" class="btn google-btn">
+                        <i class="fab fa-google"></i> Bei Google bewerten
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Snow Toggle Button -->
+    <button id="snowToggle" class="snow-toggle">
+        <i class="fas fa-snowflake"></i>
+        <span>Schnee an/aus</span>
+    </button>
+
+    <!-- Scripts -->
+    <script src="snow.js"></script>
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&libraries=places"></script>
+</body>
+</html>
