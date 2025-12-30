@@ -6,12 +6,8 @@
     <title>KoyunFood - Köstliche türkische Küche</title>
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e74c3c">
-    <meta name="msapplication-TileColor" content="#e74c3c">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="theme-color" content="#1a1a1a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,10 +33,10 @@
                 <span class="snowflake-decoration">❄</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Startseite</a></li>
-                <li><a href="#speisekarte">Speisekarte</a></li>
-                <li><a href="#ueber-uns">Über uns</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="index.html#home">Startseite</a></li>
+                <li><a href="angebote.html">Angebote</a></li>
+                <li><a href="index.html#ueber-uns">Über uns</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -133,30 +129,26 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3>Ihr Großhandelspartner</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Gewerbegebiet Nord, Lagerstraße 45, 12345 Berlin</p>
-                    <p><i class="fas fa-phone"></i> +49 30 12345678 (Vertrieb)</p>
-                    <p><i class="fas fa-phone"></i> +49 30 12345679 (Bestellannahme)</p>
-                    <p><i class="fas fa-fax"></i> +49 30 12345670</p>
-                    <p><i class="fas fa-envelope"></i> vertrieb@koyunfood.de</p>
-                    <p><i class="fas fa-truck"></i> Lieferung deutschlandweit</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Gartenstraße 3, 78054 Schwenningen</p>
+                    <p><i class="fas fa-phone"></i> +49 1523 7211123 KI Support</p>
+                    <p><i class="fas fa-fax"></i> +49 7720 31211</p>
+                    <p><i class="fas fa-envelope"></i> koyunfood@hotmail.com</p>
                     
                     <h3>Lagerzeiten</h3>
-                    <p>Montag - Freitag: 07:00 - 17:00 Uhr</p>
-                    <p>Samstag: 08:00 - 14:00 Uhr</p>
+                    <p>Montag - Freitag: 08:30 - 17:00 Uhr</p>
+                    <p>Samstag: 08:30 - 15:00 Uhr</p>
                     <p>Sonntag: Geschlossen</p>
                     
-                    <h3>Für Großkunden</h3>
-                    <p>Unser Vertriebsteam berät Sie gerne persönlich zu unseren Produkten und Konditionen.</p>
                 </div>
                 <div class="contact-form">
                     <h3>Anfrage für Gewerbekunden</h3>
                     <p>Sie sind Gewerbetreibender und interessieren sich für unsere Großhandelsangebote? Senden Sie uns eine unverbindliche Anfrage.</p>
-                    <form>
-                        <input type="text" placeholder="Firmenname*" required>
-                        <input type="text" placeholder="Ihr Name*" required>
-                        <input type="email" placeholder="E-Mail-Adresse*" required>
-                        <input type="tel" placeholder="Telefonnummer*" required>
-                        <select required>
+                    <form id="contactForm" onsubmit="return handleFormSubmit(this)">
+                        <input type="text" name="firmenname" placeholder="Firmenname*" required>
+                        <input type="text" name="name" placeholder="Ihr Name*" required>
+                        <input type="email" name="email" placeholder="E-Mail-Adresse*" required>
+                        <input type="tel" name="telefon" placeholder="Telefonnummer*" required>
+                        <select name="branche" required>
                             <option value="" disabled selected>Branche auswählen*</option>
                             <option value="gastronomie">Gastronomie</option>
                             <option value="einzelhandel">Einzelhandel</option>
@@ -164,13 +156,56 @@
                             <option value="catering">Catering</option>
                             <option value="sonstiges">Sonstiges</option>
                         </select>
-                        <textarea placeholder="Ihre Nachricht / Gewünschte Produkte" rows="4"></textarea>
+                        <textarea name="nachricht" placeholder="Ihre Nachricht / Gewünschte Produkte" rows="4" required></textarea>
                         <div class="privacy-checkbox">
-                            <input type="checkbox" id="privacy" required>
+                            <input type="checkbox" id="privacy" name="privacy" required>
                             <label for="privacy">Ich habe die <a href="datenschutz.html" style="color: var(--primary-color);">Datenschutzerklärung</a> gelesen und akzeptiere sie.*</label>
                         </div>
                         <button type="submit" class="btn">Anfrage senden</button>
                     </form>
+                    <div id="formSuccess" style="display: none; color: #28a745; margin-top: 15px; text-align: center;">
+                        Vielen Dank für Ihre Nachricht! Wir werden uns schnellstmöglich bei Ihnen melden.
+                    </div>
+                    <div id="formError" style="display: none; color: #dc3545; margin-top: 15px; text-align: center;">
+                        Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter koyunfood@hotmail.com.
+                    </div>
+                    <script>
+                    function handleFormSubmit(form) {
+                        const formData = new FormData(form);
+                        const formValues = Object.fromEntries(formData.entries());
+                        
+                        const subject = 'Neue Anfrage von ' + formValues.name + ' (' + formValues.firmenname + ')';
+                        let body = 'Neue Kontaktanfrage:\n\n';
+                        body += 'Name: ' + formValues.name + '\n';
+                        body += 'Firma: ' + formValues.firmenname + '\n';
+                        body += 'E-Mail: ' + formValues.email + '\n';
+                        body += 'Telefon: ' + formValues.telefon + '\n';
+                        body += 'Branche: ' + form.querySelector('select[name="branche"] option:checked').text + '\n';
+                        body += '\nNachricht:\n' + formValues.nachricht;
+                        
+                        const mailtoLink = 'mailto:koyunfood@hotmail.com?subject=' + 
+                                         encodeURIComponent(subject) + 
+                                         '&body=' + encodeURIComponent(body);
+                        
+                        window.location.href = mailtoLink;
+                        
+                        // Show success message
+                        document.getElementById('formSuccess').style.display = 'block';
+                        form.reset();
+                        
+                        // Scroll to success message
+                        setTimeout(() => {
+                            document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 100);
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            document.getElementById('formSuccess').style.display = 'none';
+                        }, 5000);
+                        
+                        return false; // Prevent form submission
+                    }
+                    </script>
                 </div>
             </div>
         </div>
