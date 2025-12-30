@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angebote - KoyunFood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #757575;
+            border: 1px solid #ddd;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .login-btn:hover {
+            background: #f5f5f5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .login-btn i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .pdf-container {
+            max-width: 900px;
+            margin: 40px auto;
+            display: none;
+            text-align: center;
+        }
+        
+        .pdf-container iframe {
+            width: 100%;
+            height: 800px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .login-message {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 18px;
+            color: #555;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e74c3c;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Koyun<span>Food</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Startseite</a></li>
+                <li><a href="angebote.html" class="active">Angebote</a></li>
+                <li><a href="index.html#ueber-uns">Über uns</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="section-padding">
+        <div class="container">
+            <h1 class="section-title">Unsere Aktuellen Angebote</h1>
+            
+            <div id="loginContainer" class="login-container">
+                <h2>Bitte melden Sie sich an</h2>
+                <p>Um unsere aktuellen Angebote einzusehen, melden Sie sich bitte mit Ihrem Google-Konto an.</p>
+                <button id="googleLogin" class="login-btn">
+                    <i class="fab fa-google"></i> Mit Google anmelden
+                </button>
+            </div>
+            
+            <div id="pdfContainer" class="pdf-container">
+                <h2>Unsere Aktuellen Angebote</h2>
+                <p>Hier finden Sie unsere aktuellen Angebote als PDF zum Durchblättern.</p>
+                <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Koyun<span>Food</span></div>
+                <div class="footer-links">
+                    <a href="agb.html">AGB</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="impressum.html">Impressum</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+                <p>&copy; 2025 KoyunFood. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            // Replace these with your actual Firebase config
+            apiKey: "AIzaSyDH2v2hOlvVECMgjYa0TzFETKwMUrt5QE0",
+  authDomain: "koyunfood-9649c.firebaseapp.com",
+  projectId: "koyunfood-9649c",
+  storageBucket: "koyunfood-9649c.firebasestorage.app",
+  messagingSenderId: "755515370178",
+  appId: "1:755515370178:web:da68f7b2b1840f72d4e95b",
+  measurementId: "G-4202DEMDFM"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+        // DOM elements
+        const loginContainer = document.getElementById('loginContainer');
+        const pdfContainer = document.getElementById('pdfContainer');
+        const googleLoginBtn = document.getElementById('googleLogin');
+        const pdfViewer = document.getElementById('pdfViewer');
+        
+        // Check if user is logged in
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in
+                loginContainer.style.display = 'none';
+                pdfContainer.style.display = 'block';
+                // Update PDF source - replace 'angebote.pdf' with your actual PDF filename
+                pdfViewer.src = 'angebote/angebote.pdf';
+            } else {
+                // User is signed out
+                loginContainer.style.display = 'block';
+                pdfContainer.style.display = 'none';
+            }
+        });
+        
+        // Google Sign In
+        googleLoginBtn.addEventListener('click', () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider)
+                .then((result) => {
+                    // Successfully signed in
+                    console.log('User signed in:', result.user);
+                })
+                .catch((error) => {
+                    console.error('Error signing in:', error);
+                    alert('Fehler bei der Anmeldung: ' + error.message);
+                });
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
