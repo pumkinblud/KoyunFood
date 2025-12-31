@@ -589,21 +589,27 @@ h2::after {
 
 .privacy-checkbox {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     border: none;
     padding: 0;
-    margin-bottom: 15px;
+    margin: 10px 0 15px 0;
+    max-width: 100%;
+    gap: 8px;
 }
 
 .privacy-checkbox input[type="checkbox"] {
-    margin-right: 10px;
-    margin-top: 3px;
+    margin: 0;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
 }
 
 .privacy-checkbox label {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    line-height: 1.2;
     color: var(--text-light);
+    display: inline;
+    white-space: normal;
 }
 
 /* Frozen Products Placeholder */
@@ -1055,6 +1061,26 @@ h2::after {
     color: var(--primary-color);
     width: 20px;
     text-align: center;
+}
+
+.contact-info ul.checkmark-list {
+    margin-top: 20px;
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact-info ul.checkmark-list li {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.contact-info ul.checkmark-list li i {
+    color: var(--primary-color);
+    margin-right: 5px;
 }
 
 .contact-form {
