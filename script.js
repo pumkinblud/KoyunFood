@@ -1,19 +1,59 @@
+// Function to simulate loading progress
+function simulateLoading() {
+    const progressBar = document.querySelector('.loading-progress');
+    if (progressBar) {
+        // Animate progress from 0% to 100% over 2.5 seconds
+        progressBar.style.animation = 'loading 2.5s ease-in-out forwards';
+    }
+}
+
 // Function to hide loading screen
 function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
+        // Add loaded class to trigger exit animation
         loadingScreen.classList.add('loaded');
+        
         // Remove from DOM after animation completes
         setTimeout(() => {
             loadingScreen.style.display = 'none';
-        }, 500); // Match this with the CSS transition time
+            
+            // Enable scrolling
+            document.body.style.overflow = 'auto';
+        }, 800); // Match this with the CSS transition time
     }
 }
 
-// Wait for everything to load
-window.addEventListener('load', function() {
-    // Add a small delay for better UX (optional)
-    setTimeout(hideLoadingScreen, 1000);
+// Disable scrolling while loading
+document.body.style.overflow = 'hidden';
+
+// Start loading simulation when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Start the loading animation
+    simulateLoading();
+    
+    // Add a small delay to ensure the loading screen is visible
+    setTimeout(() => {
+        // Start loading all page resources
+        Promise.all([
+            // Preload images
+            ...Array.from(document.images).map(img => {
+                if (img.complete) return Promise.resolve();
+                return new Promise(resolve => {
+                    img.onload = resolve;
+                    img.onerror = resolve; // Continue even if some images fail to load
+                });
+            }),
+            // Wait for fonts to load
+            document.fonts.ready
+        ]).then(() => {
+            // Add a minimum display time for better UX
+            setTimeout(hideLoadingScreen, 1000);
+        }).catch(() => {
+            // Ensure loading screen is hidden even if there's an error
+            setTimeout(hideLoadingScreen, 1000);
+        });
+    }, 100);
 });
 
 // Function to initialize the hero slideshow
@@ -229,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 reviewsContainer.appendChild(reviewCard);
             });
             
-            // Trigger animations
+            // Trigger animations 
             setTimeout(() => {
                 document.querySelectorAll('.review-card').forEach((card, index) => {
                     setTimeout(() => {
@@ -295,23 +335,100 @@ document.addEventListener('DOMContentLoaded', function() {
         slideshow.querySelector('.next').addEventListener('click', nextSlide);
         
         // Auto cycle through slides
-        setInterval(nextSlide, 5000);
+        };
         
+        // Trigger animations
+        setTimeout(() => {
+            document.querySelectorAll('.review-card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 200);
+            });
+        }, 100);
+    
+    
+    // Try to load actual Google reviews if API key is provided
+    if (apiKey && apiKey !== 'YOUR_GOOGLE_API_KEY' && placeId && placeId !== 'YOUR_GOOGLE_PLACE_ID') {
+        // This is a simplified example - in a real implementation, you would need to use
+        // the Google Places API with your API key and handle the response accordingly
+        // For security reasons, this should be done on the server side
+        
+        // For now, we'll use the fallback reviews
+        displayReviews(fallbackReviews);
+    } else {
+        // Use fallback reviews if API key is not provided
+        displayReviews(fallbackReviews);
+    }
+
+
+// Update Google review button link
+function updateGoogleReviewLink() {
+    const reviewButton = document.querySelector('.google-review-link a');
+    if (reviewButton) {
+        // Replace with your actual Google Maps place URL
+        reviewButton.href = 'https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID';
+    }
+}
+
+// Initialize all features
+function init() {
+    checkCookieConsent();
+    loadGoogleReviews();
+    updateGoogleReviewLink();
+}
+
+// Initialize the slideshow
+function initSlideshow() {
+    const slideshow = document.querySelector('.slideshow');
+    const slides = slideshow.querySelectorAll('.slide');
+    let currentSlide = 0;
+    
+    function showSlide() {
+        slides.forEach((slide, index) => {
+            slide.style.display = index === currentSlide ? 'block' : 'none';
+        });
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
         showSlide();
     }
     
-    // Run initialization when DOM is loaded
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            init();
-            initSlideshow();
-        });
-    } else {
-        init();
-        initSlideshow();
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide();
     }
     
-    // Add loading animation
-    window.addEventListener('load', function() {
-        document.body.classList.add('loaded');
+    slideshow.querySelector('.prev').addEventListener('click', prevSlide);
+    slideshow.querySelector('.next').addEventListener('click', nextSlide);
+    
+    // Auto cycle through slides
+    setInterval(nextSlide, 5000);
+    
+    showSlide();
+}
+
+// Run initialization when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        initSlideshow();
+        loadGoogleReviews();
+        updateGoogleReviewLink();
+        
+        // Check if we're on the home page
+        if (document.querySelector('.hero')) {
+            // Add any home page specific initializations here
+        }
     });
+} else {
+    init();
+    initSlideshow();
+    loadGoogleReviews();
+    updateGoogleReviewLink();
+}
+
+// Add loading animation
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+});

@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-    --primary-color: #e74c3c;
+    --primary-color: #27ae60;
     --secondary-color: #2c3e50;
     --accent-color: #f39c12;
     --light-color: #ecf0f1;
@@ -52,7 +52,7 @@ ul {
 }
 
 .btn:hover {
-    background: #c0392b;
+    background: #229954;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -647,48 +647,6 @@ h2::after {
     z-index: 1;
 }
 
-/* Snow Toggle Button */
-.snow-toggle {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #4b6cb7, #182848);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 12px 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1001;
-    transition: all 0.3s ease;
-}
-
-.snow-toggle:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-.snow-toggle i {
-    font-size: 16px;
-    transition: transform 0.5s ease;
-}
-
-.snow-toggle.active i {
-    color: #b3d9ff;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* Logo Decoration */
 .logo {
     position: relative;
@@ -697,57 +655,101 @@ h2::after {
     gap: 8px;
 }
 
-.snowflake-decoration {
-    color: #4b9fff;
+.seasonal-decoration {
+    color: #27ae60;
     font-size: 1.2em;
-    animation: float 3s ease-in-out infinite;
+    animation: gentle-sway 3s ease-in-out infinite;
     opacity: 0.8;
 }
 
-.snowflake-decoration:first-child {
+.seasonal-decoration:first-child {
     animation-delay: 0.5s;
 }
 
-.snowflake-decoration:last-child {
+.seasonal-decoration:last-child {
     animation-delay: 1s;
 }
 
-@keyframes float {
+@keyframes gentle-sway {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-5px) rotate(10deg); }
+    50% { transform: translateY(-3px) rotate(5deg); }
 }
 
-/* Snow Effect */
-@keyframes fall {
-    0% {
-        transform: translateY(-10px) translateX(0) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.8;
-    }
-    90% {
-        opacity: 0.6;
-    }
-    100% {
-        transform: translateY(calc(100vh + 10px)) translateX(var(--horizontal-movement, 0)) rotate(360deg);
-        opacity: 0;
-    }
+/* Gallery Section */
+.gallery-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 100px 0;
 }
 
-.snowflake {
-    position: fixed;
-    background: linear-gradient(135deg, #e6f2ff 0%, #b3d9ff 100%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 1000;
-    will-change: transform, opacity;
-    box-shadow: 
-        0 0 10px 2px rgba(179, 217, 255, 0.6),
-        0 0 20px 5px rgba(179, 217, 255, 0.4),
-        0 0 30px 10px rgba(179, 217, 255, 0.2);
-    filter: blur(0.5px);
-    transition: transform 0.1s ease-out;
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+    padding: 30px 20px 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.gallery-overlay p,
+.gallery-overlay span {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.4;
 }
 
 /* Modern Loading Screen */
@@ -773,7 +775,7 @@ h2::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #e74c3c, #e67e22);
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
     opacity: 0.9;
     z-index: -1;
 }
