@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoyunFood</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">KoyunFood</div>
+            <div class="food-loader">
+                <div class="food-item"></div>
+                <div class="food-item"></div>
+                <div class="food-item"></div>
+                <div class="food-item"></div>
+                <div class="food-item"></div>
+                <div class="food-item"></div>
+            </div>
+            <div class="loading-text">KoyunFood wird zubereitet</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="seasonal-decoration">🌿</span>
+                Koyun<span>Food</span>
+                <span class="seasonal-decoration">🌿</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Startseite</a></li>
+                <li><a href="angebote.html">Angebote</a></li>
+                <li><a href="index.html#lager">Unser Lager</a></li>
+                <li><a href="index.html#ueber-uns">Über uns</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="hero-image" style="background-image: url('WhatsApp Image 2026-01-31 at 10.08.39.jpeg');">
+                <!-- Fallback image in case CSS background doesn't load -->
+                <img src="WhatsApp Image 2026-01-31 at 10.08.39.jpeg" alt="KoyunFood Großhandel Lager" style="display: none;">
+            </div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>KoyunFood</h1>
+                <div class="divider"></div>
+                <p>Ihr zuverlässiger Partner für türkische Lebensmittel im Großhandel</p>
+                <div class="hero-buttons">
+                    <a href="#produkte" class="btn btn-primary">Zu unseren Produkten</a>
+                    <a href="#kontakt" class="btn btn-secondary">Kontakt aufnehmen</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Produkte Section -->
+    <section id="produkte" class="menu-section">
+        <div class="container">
+            <h2>Unser Sortiment</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fleisch und Wurstwaren">
+                    <h3>Fleisch & Wurstwaren</h3>
+                    <p>Hochwertiges türkisches Fleisch und Wurstspezialitäten in Großhandelsqualität</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Käse und Milchprodukte">
+                    <h3>Käse & Milchprodukte</h3>
+                    <p>Traditionelle türkische Käsesorten und frische Milchprodukte</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Trockenwaren">
+                    <h3>Trockenwaren & Gewürze</h3>
+                    <p>Umfangreiches Sortiment an türkischen Trockenwaren und Gewürzen</p>
+                </div>
+                <div class="menu-item">
+                    <div class="frozen-placeholder">
+                        <span>Tiefkühlprodukte</span>
+                    </div>
+                    <h3>Tiefkühlprodukte</h3>
+                    <p>Große Auswahl an türkischen Tiefkühlprodukten für die Gastronomie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über Uns Section -->
+    <section id="ueber-uns" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Die Geschichte von Koyun Food</h2>
+                    <p>Im Jahr 1978 legte Riza Koyun den Grundstein für das, was heute als Koyun Food bekannt ist. Mit viel Fleiß, Verlässlichkeit und einem klaren Fokus auf frisches Obst und Gemüse begann eine Erfolgsgeschichte, die über Jahrzehnte hinweg wuchs.
+
+Was einst klein startete, entwickelte sich Schritt für Schritt weiter. Aus dem ursprünglichen Handel mit Obst und Gemüse entstand ein vielseitiges Sortiment: Heute beliefert Koyun Food seine Kunden nicht nur mit frischen Produkten, sondern auch mit Fleisch- und Wurstwaren, Tiefkühlprodukten sowie Verpackungsmaterialien. Ergänzt wurde das Angebot durch einen spezialisierten Großhandel für Gastronomiebetriebe – immer mit dem Anspruch, Qualität, Frische und Service zu vereinen.
+
+Heute wird das Unternehmen von der nächsten Generation geführt: Coskun Koyun setzt die Werte und Visionen des Gründers fort und verbindet Tradition mit modernen Anforderungen des Marktes. Koyun Food steht damit für über vier Jahrzehnte Erfahrung, familiäre Kontinuität und partnerschaftliche Zusammenarbeit – gestern, heute und in Zukunft.</p>
+                    
+                    <div class="checkmark-container" style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 15px;">
+                        <div class="checkmark-item" style="display: flex; align-items: center; white-space: nowrap;">
+                            <i class="fas fa-check" style="color: var(--primary-color); margin-right: 5px;"></i>
+                            <span>Großhandelspreise</span>
+                        </div>
+                        <div class="checkmark-item" style="display: flex; align-items: center; white-space: nowrap;">
+                            <i class="fas fa-check" style="color: var(--primary-color); margin-right: 5px;"></i>
+                            <span>Regelmäßige Lieferungen</span>
+                        </div>
+                        <div class="checkmark-item" style="display: flex; align-items: center; white-space: nowrap;">
+                            <i class="fas fa-check" style="color: var(--primary-color); margin-right: 5px;"></i>
+                            <span>Persönliche Beratung</span>
+                        </div>
+                        <div class="checkmark-item" style="display: flex; align-items: center; white-space: nowrap;">
+                            <i class="fas fa-check" style="color: var(--primary-color); margin-right: 5px;"></i>
+                            <span>Zuverlässiger Service</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="image.jpeg" alt="KoyunFood Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lager Galerie Section -->
+    <section id="lager" class="gallery-section">
+        <div class="container">
+            <h2>Unser Großhandel</h2>
+            <p class="section-subtitle">Ein Blick in unser modernes Lager - die Basis für zuverlässige Lieferungen</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-01-31 at 10.08.40.jpeg" alt="KoyunFood Lager Gang">
+                    <div class="gallery-overlay">
+                        <h3>Modernes Lager</h3>
+                        <p>Breite Gänge für effiziente Logistik</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-01-31 at 10.35.56.jpeg" alt="KoyunFood Produkte">
+                    <div class="gallery-overlay">
+                        <h3>Vielfältiges Sortiment</h3>
+                        <p>Türkische Produkte in bester Qualität</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-01-31 at 10.35.57.jpeg" alt="KoyunFood Lager">
+                    <div class="gallery-overlay">
+                        <h3>Professionelle Lagerung</h3>
+                        <span>Optimale Bedingungen für alle Produkte</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-01-31 at 10.08.39.jpeg" alt="KoyunFood Großhandel">
+                    <div class="gallery-overlay">
+                        <h3>Großhandelskapazität</h3>
+                        <span>Ausreichend Platz für große Bestände</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" class="contact-section">
+        <div class="container">
+            <h2>Kontakt & Geschäftszeiten</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Ihr Großhandelspartner</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Gartenstraße 3, 78054 Schwenningen</p>
+                    <p><i class="fas fa-phone"></i> +49 1523 7211123  Bestell Support</p>
+                    <p><i class="fas fa-fax"></i> +49 7720 31211 Hauptnummer</p>
+                    <p><i class="fas fa-envelope"></i> koyunfood@hotmail.com</p>
+                    
+                    <h3>Lagerzeiten</h3>
+                    <p>Montag - Freitag: 08:30 - 17:00 Uhr</p>
+                    <p>Samstag: 08:30 - 15:00 Uhr</p>
+                    <p>Sonntag: Geschlossen</p>
+                    
+                </div>
+                <div class="contact-form">
+                    <h3>Anfrage für Gewerbekunden</h3>
+                    <p>Sie sind Gewerbetreibender und interessieren sich für unsere Großhandelsangebote? Senden Sie uns eine unverbindliche Anfrage.</p>
+                    <form id="contactForm" onsubmit="return handleFormSubmit(this)">
+                        <input type="text" name="firmenname" placeholder="Firmenname*" required>
+                        <input type="text" name="name" placeholder="Ihr Name*" required>
+                        <input type="email" name="email" placeholder="E-Mail-Adresse*" required>
+                        <input type="tel" name="telefon" placeholder="Telefonnummer*" required>
+                        <select name="branche" required>
+                            <option value="" disabled selected>Branche auswählen*</option>
+                            <option value="gastronomie">Gastronomie</option>
+                            <option value="einzelhandel">Einzelhandel</option>
+                            <option value="grossverbraucher">Großverbraucher</option>
+                            <option value="catering">Catering</option>
+                            <option value="sonstiges">Sonstiges</option>
+                        </select>
+                        <textarea name="nachricht" placeholder="Ihre Nachricht / Gewünschte Produkte" rows="4" required></textarea>
+                        <div class="privacy-checkbox">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">Ich habe die <a href="datenschutz.html" style="color: var(--primary-color);">Datenschutzerklärung</a> gelesen und akzeptiere sie.*</label>
+                        </div>
+                        <button type="submit" class="btn">Anfrage senden</button>
+                    </form>
+                    <div id="formSuccess" style="display: none; color: #28a745; margin-top: 15px; text-align: center;">
+                        Vielen Dank für Ihre Nachricht! Wir werden uns schnellstmöglich bei Ihnen melden.
+                    </div>
+                    <div id="formError" style="display: none; color: #dc3545; margin-top: 15px; text-align: center;">
+                        Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter koyunfood@hotmail.com.
+                    </div>
+                    <script>
+                    function handleFormSubmit(form) {
+                        const formData = new FormData(form);
+                        const formValues = Object.fromEntries(formData.entries());
+                        
+                        const subject = 'Neue Anfrage von ' + formValues.name + ' (' + formValues.firmenname + ')';
+                        let body = 'Neue Kontaktanfrage:\n\n';
+                        body += 'Name: ' + formValues.name + '\n';
+                        body += 'Firma: ' + formValues.firmenname + '\n';
+                        body += 'E-Mail: ' + formValues.email + '\n';
+                        body += 'Telefon: ' + formValues.telefon + '\n';
+                        body += 'Branche: ' + form.querySelector('select[name="branche"] option:checked').text + '\n';
+                        body += '\nNachricht:\n' + formValues.nachricht;
+                        
+                        const mailtoLink = 'mailto:koyunfood@hotmail.com?subject=' + 
+                                         encodeURIComponent(subject) + 
+                                         '&body=' + encodeURIComponent(body);
+                        
+                        window.location.href = mailtoLink;
+                        
+                        // Show success message
+                        document.getElementById('formSuccess').style.display = 'block';
+                        form.reset();
+                        
+                        // Scroll to success message
+                        setTimeout(() => {
+                            document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 100);
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            document.getElementById('formSuccess').style.display = 'none';
+                        }, 5000);
+                        
+                        return false; // Prevent form submission
+                    }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Koyun<span>Food</span></div>
+                <div class="footer-links">
+                    <a href="agb.html">AGB</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="impressum.html">Impressum</a>
+                </div>
+                <p>&copy; 2025 KoyunFood. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies, um Ihnen das beste Erlebnis auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie unserer <a href="#" style="color: var(--primary-color);">Datenschutzerklärung</a> zu.</p>
+            <button id="accept-cookies" class="btn">Akzeptieren</button>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
